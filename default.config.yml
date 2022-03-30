@@ -7,15 +7,20 @@ configure_osx: true
 
 # Set to 'true' to configure the Dock via dockutil.
 configure_dock: false
-dockitems_remove: []
-# - Launchpad
-# - TV
-# - Podcasts
-# - 'App Store'
-dockitems_persist: []
-# - name: "Sublime Text"
-#   path: "/Applications/Sublime Text.app/"
-#   pos: 5
+dockitems_remove:
+  - Launchpad
+  - Messages
+  - Maps
+  - Photos
+  - FaceTime
+  - TV
+  - Music
+  - Podcasts
+  - 'App Store'
+dockitems_persist: 
+  - name: "Visual Studio Code"
+    path: "/Applications/Visual Studio Code.app/"
+    pos: 5
 
 configure_sudoers: false
 sudoers_custom_config: ''
@@ -24,9 +29,10 @@ sudoers_custom_config: ''
 #   # Allow users in admin group to use sudo with no password.
 #   %admin ALL=(ALL) NOPASSWD: ALL
 
-dotfiles_repo: https://github.com/geerlingguy/dotfiles.git
+dotfiles_repo: https://github.com/ondrejprazsky/mac-dotfiles.git
+dotfiles_repo_version: main
 dotfiles_repo_accept_hostkey: true
-dotfiles_repo_local_destination: ~/Development/GitHub/dotfiles
+dotfiles_repo_local_destination: ~/Documents/GitHub/mac-dotfiles
 dotfiles_files:
   - .zshrc
   - .gitignore
@@ -35,15 +41,15 @@ dotfiles_files:
   - .vimrc
 
 homebrew_installed_packages:
-  # - ansible # Installed via Pip.
+  - ansible
   - autoconf
   - bash-completion
+  - conan
   - doxygen
   - gettext
   - gifsicle
   - git
   - github/gh/gh
-  - go
   - gpg
   - httpie
   - iperf
@@ -55,7 +61,6 @@ homebrew_installed_packages:
   - nvm
   - php
   - ssh-copy-id
-  - cowsay
   - readline
   - openssl
   - pv
@@ -70,6 +75,7 @@ homebrew_taps:
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - chromedriver
+  - cmake
   - docker
   - dropbox
   - firefox
@@ -81,6 +87,7 @@ homebrew_cask_apps:
   - sublime-text
   - transmit
   - vagrant
+  - visual-studio-code
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps: []
@@ -109,7 +116,6 @@ pip_packages: []
 #   state: present # present/absent/latest, default: present
 #   version: "0.16.3" # default: N/A
 
-# Set to 'true' to configure Sublime Text.
 configure_sublime: false
 sublime_base_path: '~/Library/Application Support/Sublime Text'
 sublime_config_path: "Packages/User"
@@ -120,7 +126,6 @@ sublime_package_control:
   - "GitHub Flavored Markdown Preview"
   - "Jinja2"
   - "Package Control"
-  - "PHP-Twig"
   - "Pretty JSON"
   - "SublimeLinter"
   - "SublimeLinter-contrib-yamllint"

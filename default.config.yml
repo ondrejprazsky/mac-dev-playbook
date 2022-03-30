@@ -50,6 +50,7 @@ homebrew_installed_packages:
   - gifsicle
   - git
   - github/gh/gh
+  - gitlab-runner
   - gpg
   - httpie
   - iperf
@@ -59,10 +60,10 @@ homebrew_installed_packages:
   - nmap
   - node
   - nvm
-  - php
-  - ssh-copy-id
-  - readline
   - openssl
+  - php
+  - readline
+  - ssh-copy-id
   - pv
   - wget
   - wrk
@@ -132,13 +133,20 @@ sublime_package_control:
   - "TrailingSpaces"
   - "WordCount"
 
-configure_vscode_extensions: true
+configure_vscode_extensions: false
 users:
   - username: ondrej.prazsky
     visual_studio_code_extensions:
       - ms-python.python
       - ms-vscode.cpptools
       - davidanson.vscode-markdownlint
+
+configure_gitlabrunner: false
+gitlabrunner_url: http://git.firma.lim.cz/
+gitlabrunner_description: 'Runner on iMac for limfile project'
+gitlabrunner_registration_token: 'pcG8oic3wmxvzTsKo_c2'
+gitlabrunner_taglist: []
+
 
 # Glob pattern to ansible task files to run after all other tasks are finished.
 post_provision_tasks: []

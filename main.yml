@@ -48,6 +48,10 @@
       when: configure_sublime
       tags: ['sublime-text']
 
+    - import_tasks: tasks/gitlab-runner.yml
+      when: configure_gitlabrunner
+      tags: ['gitlabrunner']   
+
     - name: Run configured post-provision ansible task files.
       include_tasks: "{{ outer_item }}"
       loop_control:

@@ -75,20 +75,31 @@ homebrew_taps:
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
+  #- balenaetcher
+  #- bitwarden
+  #- chirp
   - chromedriver
   - cmake
   - docker
   - dropbox
   - firefox
+  #- forklift
+  #- freecad
   - google-chrome
   - handbrake
   - licecap
+  #- prusaslicer
+  #- raspberry-pi-imager
   - sequel-ace
   - slack
   - sublime-text
+  #- teamviewer
+  #- tor-browser
   - transmit
   - vagrant
+  #- virtualbox
   - visual-studio-code
+  #- vlc
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps: []

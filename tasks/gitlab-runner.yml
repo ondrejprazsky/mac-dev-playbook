@@ -1,46 +1,40 @@
 ---
 
-- name: Check that ~/.gitlab-runner/config.toml exists
-  stat:
-    path: ~/.gitlab-runner/config.toml
-  register: stat_result
-
 - name: Brew service start Gitlab runner
   ansible.builtin.command: brew services start gitlab-runner
-  when: not stat_result.stat.exists
 
 - name: Install Gitlab runner
   ansible.builtin.command: gitlab-runner install
-  when: not stat_result.stat.exists
+  failed_when: false
 
 - name: Start Gitlab runner
   ansible.builtin.command: gitlab-runner start
-  when: not stat_result.stat.exists
+  failed_when: false
 
-- name: Start Gitlab runner
+- name: Remove config.toml
   ansible.builtin.file:
     path: ~/.gitlab-runner/config.toml
     state: absent
-  when: stat_result.stat.exists
 
-- name: Register and run Gitlab runner
+- name: Register and run Gitlab runners
   ansible.builtin.command:
     argv:
       - gitlab-runner
       - register
       - --non-interactive
       - --url
-      - "{{ gitlabrunner_url }}"
+      - "{{ item.url }}"
       - --registration-token
-      - "{{ gitlabrunner_registration_token }}"
+      - "{{ item.token }}"
       - --executor
-      - shell
+      - "{{ item.executor | default('shell') }}"
       - --description
-      - "{{ gitlabrunner_description }}"
+      - "{{ item.name }}"
       - --tag-list
-      - macosx
+      - "{{ item.taglist | join(',') }}"
       - --locked=false
       - --access-level=not_protected
+  loop: "{{ gitlab_runners }}"
 
 # - name: Create Gitlab runner
 #   community.general.gitlab_runner:

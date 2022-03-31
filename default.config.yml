@@ -52,6 +52,7 @@ homebrew_installed_packages:
   - github/gh/gh
   - gitlab-runner
   - gpg
+  #- graphviz
   - httpie
   - iperf
   - libevent
@@ -154,11 +155,7 @@ users:
       - davidanson.vscode-markdownlint
 
 configure_gitlabrunner: false
-gitlabrunner_url: http://git.firma.lim.cz/
-gitlabrunner_description: 'Runner on iMac for limfile project'
-gitlabrunner_registration_token: 'pcG8oic3wmxvzTsKo_c2'
-gitlabrunner_taglist: []
-
+gitlab_runners: []
 
 # Glob pattern to ansible task files to run after all other tasks are finished.
 post_provision_tasks: []

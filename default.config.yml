@@ -91,6 +91,7 @@ homebrew_cask_apps:
   #- prusaslicer
   #- raspberry-pi-imager
   - sequel-ace
+  #- signal
   - slack
   - sublime-text
   #- teamviewer

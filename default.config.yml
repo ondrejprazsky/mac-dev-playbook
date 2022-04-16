@@ -64,6 +64,7 @@ homebrew_installed_packages:
   - openssl
   - php
   - readline
+  #- rbenv
   - ssh-copy-id
   - pv
   - wget
@@ -89,12 +90,13 @@ homebrew_cask_apps:
   - google-chrome
   - handbrake
   - licecap
+  - macvim
   #- prusaslicer
   #- raspberry-pi-imager
   - sequel-ace
   #- signal
   - slack
-  - sublime-text
+  #- sublime-text
   #- teamviewer
   #- tor-browser
   - transmit
